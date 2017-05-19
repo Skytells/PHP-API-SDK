@@ -5,7 +5,7 @@
  * Copyrights 2007 - 2017 Skytells, Inc, All Rights Reserved.
  * API Reference : https://developers.skytells.net
  * Website : https://www.skytells.net 
- * Updated DateTime: 01/12/2016 5:00 AM
+ * Updated DateTime: 17/05/2017 5:00 AM
  * License : GNU GENERAL PUBLIC LICENSE
  * ----------------------------------------------------------*
  * PLEASE READ THE API REFERENCE BEFORE MAKING API CALLS
@@ -41,7 +41,7 @@ class WebHandler
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL => "https://v.skytells.net/".$Query."?key=$this->APIKEY",
-            CURLOPT_USERAGENT => 'SkytellsClint',
+            CURLOPT_USERAGENT => 'SkytellsClient',
             CURLOPT_POST => 1,
             CURLOPT_POSTFIELDS => $Params,
             CURLOPT_SSL_VERIFYHOST => 0,
