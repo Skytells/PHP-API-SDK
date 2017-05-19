@@ -8,7 +8,7 @@ require(__DIR__."/cUrl.php");
  * Copyrights 2007 - 2017 Skytells, Inc, All Rights Reserved.
  * API Reference : https://developers.skytells.net
  * Website : https://www.skytells.net 
- * Updated DateTime: 01/12/2016 5:00 AM
+ * Updated DateTime: 17/05/2017 5:00 AM
  * License : GNU GENERAL PUBLIC LICENSE
  * ----------------------------------------------------------*
  * PLEASE READ THE API REFERENCE BEFORE MAKING API CALLS
@@ -347,6 +347,33 @@ require(__DIR__."/cUrl.php");
                 );
         }
      
+     
+     
+     /* ----- AI APIs (Train an Image) ----- *
+      * @method train
+      * @return JSON OBJECT
+      */
+     function train($Image, $Name) {
+      if (!isset($Image)) {
+       throw new Exception("Image URL is required for training an image!", 1);
+      }
+      if (!isset($Name)) {
+       throw new Exception("Title or name of the faces on image is missing.", 1);
+      }
+      return $this->WebHandler->MakeRequest("ai/faces/train",array('image' => $Image, "name"=> $Name) );
+     }
+     
+     
+     /* ----- AI APIs (Recognize Faces on an Image) ----- *
+      * @method recognize
+      * @return JSON OBJECT
+      */
+     function recognize($Image) {
+      if (!isset($Image)) {
+       throw new Exception("Image URL is required for recognizing faces on an image!", 1);
+      }
+      return $this->WebHandler->MakeRequest("ai/faces/recognize",array('image' => $Image) );
+     }
      
         
     }
